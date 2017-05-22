@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 from moviepy.editor import VideoFileClip
 from IPython.display import HTML
 import os
-
+import numpy as np
 import sys
 
 white_output = sys.argv[2]
@@ -27,9 +27,9 @@ clip1 = VideoFileClip(input)
 
 tracker = CarTracker('model.p',
                      nsteps=3,
-                     threshold=4,
+                     threshold=6,
                      scales=[0.8,1, 1.5, 3, 6],
-                     minsize_detection_close=2800,
+                     minsize_detection_close=np.inf,
                      minsize_detection_far=500
                      )
 

@@ -1,4 +1,4 @@
-# Vehicle Detection Project with HOG and Linear SVC - Luca Fiaschi
+# Vehicle Detection Project with HOG and Linear SVC 
 
 The goal of this project is to write a software to reliably detect cars in a video.
 The steps/ techniques used in  this project are the following:
@@ -122,7 +122,7 @@ heatmap helps identifying the detections.
 
 ---
 
-###Discussion
+### Discussion
 
 The car tracker does a very good job in identifying cars when they are one far apart from each other.
 
