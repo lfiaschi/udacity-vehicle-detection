@@ -18,7 +18,6 @@ The code is organized as follows:
 * To train the classifier a separated script is provided `bin/train.py`. The script produces a pickled file `model.p` containing the trained classifier and
 the parameters to extract the features (such as the scale of the HOG filters)
 
-* The output video is saved in `output.mp4` and can be obtained by running the script `detect.py`
 
 [//]: # (Image References)
 [image1]: ./output_images/random_samples.png
@@ -27,8 +26,14 @@ the parameters to extract the features (such as the scale of the HOG filters)
 [image4]: ./output_images/confusion_matrix.png
 [image5]: ./output_images/pipeling_0.png
 [image6]: ./output_images/pipeling_5.png
+[video1]: ./output.mp4
+
+* The output video is saved in [output.mp4](./output.mp4) and can be obtained by running  `python bin/detect.py project_video.mp4 output.mp4`
+
 
 ![Output Gif](small_video.gif)
+
+![alt text][video1]
 
 ---
 ## Histogram of Oriented Gradients (HOG)
