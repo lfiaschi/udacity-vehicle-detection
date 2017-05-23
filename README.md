@@ -33,8 +33,6 @@ the parameters to extract the features (such as the scale of the HOG filters)
 
 ![Output Gif](small_video.gif)
 
-![alt text][video1]
-
 ---
 ## Histogram of Oriented Gradients (HOG)
 
@@ -129,10 +127,16 @@ heatmap helps identifying the detections.
 
 ### Discussion
 
-The car tracker does a very good job in identifying cars when they are one far apart from each other.
+The car tracker does a fairly good job at identifying cars when they are one far apart from each other.
 
-However, car which are overalpping (surpassing) are hard to tell apart. Also before the car is correctly detected it
-needs to be almost entirely in the field of view and while the car is entering this area is not detected or detected
-as multiple almost overallapping objects.
+However there are three challenging situations:
 
-Onother, problem is is to optimize the throughput of the car detector.  In fact, in order to be usable in real conditions it needs to be able to provide the detections in almost real time.
+- When the cars are very far we would need to run the detector at very small scale in order ot find it which would create 
+a lot of small positive detections since the detector is fairly inaccurate at that resolution. An higher resolution camera
+would help in this case.
+- Cars which are mutually occluded (surpassing) are hard to tell apart and detected as single entity in most frames, which could 
+be solved by combining the detector with a Kalman filter tracker to infer the trajectory of the car.
+- Cars which are entering or exiting the field of view are not detected or detected as multiple objects. This could be
+addressed by using a detector which is more robust to partial occlusion such as Deformable Parts Model `http://docs.opencv.org/3.2.0/d9/d12/group__dpm.html`
+
+Another, problem is is to optimize the throughput of the car detector.  In fact, in order to be usable in real conditions it needs to be able to provide the detections in almost real time.
